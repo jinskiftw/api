@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html lang="en"> 
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="font-family: 'Arial', sans-serif; background: #F0F0F0; padding: 30px">
+    
+      <!-- Logo -->
+      <img src="<%= process.env.ADMIN_NODE_URL+'/uploads/public/wheelman.png' %>" alt="WheelMan Logo" style="max-width: 100%; height: auto;">
+    
+      <h1 style="font-weight: 500;">Car Transferred! </h1>
+ 
+      <p>Congratulations, <%=user.fullName%> has transferred their <%=car.manufacturerYear%> <%=car.manufacturer%> <%=car.model%> to you. 
+        
+        <% if(carCnt>= newUser.planId.garageLimit){ %>
+          In order to take possession, please upgrade your plan within 30 days. You are currently out of garage spaces.
+        <% }  %>  
+          
+        </p>
+
+      <p style="font-weight:bold;">YOUR WHEELMAN USERNAME:</p>
+      <p style="font-weight:bold;"><a href="mailto:<%= user.email %>"><%= newUser.email %></a></p>
+
+      <p>Please click the button below to go to garage.</p>
+ 
+   
+      <p><a href="<%= garageLink %>" style="text-decoration: none; color: #FFF; background: #000; display: inline-block; padding: 10px 30px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; margin: 10px 0;"><%=garageLinkName %></a></p>
+
+      <p style="font-size: 18px;">We're here to help</p>
+    
+      <p>If you have any questions or concerns, please send us an email at
+        support@wheelmanllc.com</p>
+        
+      <p style="font-size: 22px;">Whatever you care about, let WheelMan maintain it.</p>
+
+      <div style="text-align: center; padding: 5px; font-size: 14px;" >
+        <a href="<%= process.env.FRONTEND_SITE %>">Home</a> | <a href="<%= process.env.FRONTEND_SITE+'/about' %>">About</a> | <a href="<%= process.env.FRONTEND_SITE+'/product-features' %>">Product Features</a> | <a href="<%= process.env.FRONTEND_SITE+'/contact' %>">Contact</a> 
+      </div>
+      <div style="text-align: center;  padding: 5px;  font-size: 14px;">
+        <a href="<%= process.env.FRONTEND_SITE+'/privacypolicy' %>">Privacy Policy</a> | <a href="<%= process.env.FRONTEND_SITE+'/termsandconditions' %>">Terms & Conditions</a>
+      </div>
+    
+    </body>
+    </html>

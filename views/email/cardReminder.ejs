@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+           body, table{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+           }
+           .container{
+               max-width: 800px;
+               background: #fff;
+               margin: 0 auto;
+               padding: 0;
+               border: 1px solid #CCC;
+               border-radius: 20px;
+               margin: 0 auto;
+           }
+           table{
+            border-collapse: collapse;
+            width: 100%;
+           }
+           .duetext{
+            font-size: 28px;
+            color: #db3e3e;
+
+           }
+           .emailtext{
+            font-size:18px;
+            color: #331d9f;
+            cursor: pointer;
+            display: block;
+            padding: 20px 0;
+           }
+           hr{
+            width: 70%;
+            color: #CCC;
+           }
+           .bluetxt{
+            color: #331d9f;
+            font-weight: bold;
+           }
+           .cardcat{
+            margin: 20px auto;
+            width: auto;
+           }
+           .cardcat td{
+            font-size: 16px;
+            border-right: 2px solid #000;
+            padding: 0px 20px;
+            line-height: 1;
+           }
+           .cardcat td:last-child{
+            border: 0;
+           }
+           .cardcat td span{
+            font-weight: bold;
+            display: inline;
+            padding-right: 5px;
+           }
+           .carditem{
+            width: 55%;
+            max-width: 500px;
+            margin: 50px auto;
+            border-collapse: collapse;
+           }
+           .carditem th{
+            background: #4e6b54;
+            color: #FFF;
+            font-size: 14px;
+           }
+           .cardtext{
+            width: 50%;
+            margin: 0 auto;
+            font-size: 16px;
+           }
+           .notify-text{
+            width: 60%;
+            max-width: 500px;
+            margin: 0 auto;
+           }
+           .visit-container{
+            margin: 35px auto;
+            text-align: center;
+           }
+           .visitbtn{
+            display: inline-block;
+            background: rgba(22, 88, 64, 0.15);
+            color: #165840;
+            padding: 15px 40px;
+            width: auto;
+            margin: 0 auto;
+            font-weight: bold;
+            font-size: 17px;
+            text-decoration: none;
+           }
+           
+       </style>
+    </head>
+    <body>
+
+
+        <div class="container">
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td align="center"><img src="https://car.neuronsit.in/static/media/Wheelman-logo2.f9eeb98f805da33657eb.png" width="200" alt="" /></td>
+                </tr>
+                <tr>
+                    <td align="center" class="duetext">You have item(s) due</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <a href="mailto:iin.lee@wheelman.com" class="emailtext">iin.lee@wheelman.com</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <hr />
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" class="cardcat">
+                <tr>
+                    <td align="center">
+                        <span>Category:</span><%= recordModel.categoryId?.title %>
+                    </td>
+                    <td align="center">
+                        <span>Date:</span><%= recordModel.logDate.toDateString() ; %>
+                    </td>
+                    <td align="center">
+                        <span>Mileage:</span><%= recordModel.mileageWithUnit %>
+                    </td>
+                    <td align="center">
+                        <span>Location:</span><%= recordModel.location %>
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" border="1" border-color="#4e6b54" class="carditem">
+                <tr>
+                    <th align="center">Item</th>
+                    <th align="center">Part Number</th>
+                    <th align="center">Source</th>
+                    <th align="center">Cost</th>
+                </tr>
+                
+                <% recordModel.options?.forEach(item => { %>
+                    <tr>
+                        <td align="center"><%= item.name %></td>
+                        <td align="center"><%= item.partNumber %></td>
+                        <td align="center"><%= item.source %></td>
+                        <td align="center"><%= item.cost %></td>
+                    </tr>
+                <% }); %>
+                
+            </table>
+
+            <div class="notify-text">
+               <%-label%>
+            </div>
+            <div class="visit-container">
+                <a href="<%=recordModel.cardUrl%>" class="visitbtn">Visit Wheelman</a>
+            </div>
+            
+
+           
+            
+            
+         
+        </div>
+
+    
+
+
+    </body>
+</html>

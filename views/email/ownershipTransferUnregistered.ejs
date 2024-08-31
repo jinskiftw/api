@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html lang="en"> 
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="font-family: 'Arial', sans-serif; background: #F0F0F0; padding: 30px">
+    
+      <!-- Logo -->
+      <img src="<%= process.env.ADMIN_NODE_URL+'/uploads/public/wheelman.png' %>" alt="WheelMan Logo" style="max-width: 100%; height: auto;">
+    
+      <h1 style="font-weight: 500;">Attention! </h1>
+ 
+      <p><%=user.fullName%> is trying to transfer their <%=car.manufacturerYear%> <%=car.manufacturer%> <%=car.model%> to you. 
+        
+        In order to take possession, please create an account. You are not a user currently. 
+       
+        
+        
+          
+        </p>
+
+ 
+ 
+      <p>Please click the button below to sign up. </p>
+ 
+   
+      <p><a href="<%= process.env.FRONTEND_URL+'/register' %>" style="text-decoration: none; color: #165840;background-color: rgba(22, 88, 64, 0.15); display: inline-block; padding: 10px 30px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; margin: 10px 0;">Sign Up</a></p>
+
+      <p style="font-size: 18px;">We're here to help</p>
+    
+      <p>If you have any questions or concerns, please send us an email at
+        support@wheelmanllc.com</p>
+        
+      <p style="font-size: 22px;">Whatever you care about, let WheelMan maintain it.</p>
+
+      <div style="text-align: center; padding: 5px; font-size: 14px;" >
+        <a href="<%= process.env.FRONTEND_SITE %>">Home</a> | <a href="<%= process.env.FRONTEND_SITE+'/about' %>">About</a> | <a href="<%= process.env.FRONTEND_SITE+'/product-features' %>">Product Features</a> | <a href="<%= process.env.FRONTEND_SITE+'/contact' %>">Contact</a> 
+      </div>
+      <div style="text-align: center;  padding: 5px;  font-size: 14px;">
+        <a href="<%= process.env.FRONTEND_SITE+'/privacypolicy' %>">Privacy Policy</a> | <a href="<%= process.env.FRONTEND_SITE+'/termsandconditions' %>">Terms & Conditions</a>
+      </div>
+    
+    </body>
+    </html>
